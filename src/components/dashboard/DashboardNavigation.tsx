@@ -3,6 +3,7 @@
 import type React from "react"
 import { Link } from "react-router-dom"
 import { User, Settings, PenSquare, Home, BarChart2, FileText, LogOut } from "lucide-react"
+import { useAuth } from "../../context/AuthContext"
 
 interface DashboardNavigationProps {
   activeTab: "overview" | "blogs" | "stats" | "settings"
@@ -10,6 +11,13 @@ interface DashboardNavigationProps {
 }
 
 const DashboardNavigation: React.FC<DashboardNavigationProps> = ({ activeTab, setActiveTab }) => {
+  const { logout } = useAuth()
+
+  const handleLogout = () => {
+    logout()
+    window.location.href = "/"
+  }
+
   return (
     <div className="w-full md:w-64 bg-white rounded-lg shadow-md p-6 mb-6 md:mb-0 md:sticky md:top-8 md:h-fit">
       <div className="flex items-center mb-6">
@@ -76,7 +84,10 @@ const DashboardNavigation: React.FC<DashboardNavigationProps> = ({ activeTab, se
           Back to Home
         </Link>
 
-        <button className="w-full flex items-center px-4 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center px-4 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50"
+        >
           <LogOut className="h-5 w-5 mr-3" />
           Sign Out
         </button>
