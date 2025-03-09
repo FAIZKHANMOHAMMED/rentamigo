@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { FileText, PenSquare, Search, Edit, Trash2, Eye, Filter, ChevronDown, ChevronUp, ThumbsUp } from "lucide-react"
+import { FileText, PenSquare, Search, Edit, Trash2, Eye, Filter, ChevronDown, ChevronUp, ThumbsUp } from 'lucide-react'
 
 interface Blog {
   id: number
@@ -235,4 +235,3 @@ const BlogManagementSection: React.FC<BlogManagementSectionProps> = ({ blogs }) 
 }
 
 export default BlogManagementSection
-

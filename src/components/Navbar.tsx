@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Menu, X, Home, PenSquare, User, LogIn, LogOut, ChevronDown } from "lucide-react"
+import { Menu, X, Home, PenSquare, User, LogIn, LogOut, ChevronDown } from 'lucide-react'
 import { useAuth } from "../context/AuthContext"
 
 const Navbar = () => {
@@ -87,20 +87,13 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                {/* Show login and signup even if not authenticated */}
+                {/* Replace these two links with a single button */}
                 <Link
                   to="/login"
                   className="ml-3 px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 rounded-md flex items-center"
                 >
                   <LogIn className="h-5 w-5 mr-1" />
-                  Login
-                </Link>
-                <Link
-                  to="/signup"
-                  className="ml-3 px-4 py-2 text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 rounded-md flex items-center"
-                >
-                  <User className="h-5 w-5 mr-1" />
-                  Sign up
+                  Login/Signup
                 </Link>
               </>
             )}
@@ -170,16 +163,7 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <LogIn className="h-5 w-5 mr-1" />
-                  Login
-                </Link>
-
-                <Link
-                  to="/signup"
-                  className="px-4 py-2 text-sm font-medium text-black hover:bg-gray-100 rounded-md flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <User className="h-5 w-5 mr-1" />
-                  Sign up
+                  Login/Signup
                 </Link>
               </>
             )}

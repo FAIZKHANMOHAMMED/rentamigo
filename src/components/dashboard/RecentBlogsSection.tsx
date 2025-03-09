@@ -1,6 +1,6 @@
 import type React from "react"
 import { Link } from "react-router-dom"
-import { FileText, ArrowRight } from "lucide-react"
+import { FileText, ArrowRight } from 'lucide-react'
 
 interface Blog {
   id: number
@@ -26,10 +26,16 @@ const RecentBlogsSection: React.FC<RecentBlogsSectionProps> = ({ blogs }) => {
           <FileText className="h-6 w-6 text-gray-700 mr-2" />
           <h2 className="text-2xl font-bold">Recent Blogs</h2>
         </div>
-        <Link to="/dashboard/blogs" className="text-black hover:text-gray-700 flex items-center">
+        <button 
+          onClick={() => {
+            // This will trigger the parent component to switch to the blogs tab
+            window.dispatchEvent(new CustomEvent('switchToBlogsTab'));
+          }}
+          className="text-black hover:text-gray-700 flex items-center cursor-pointer"
+        >
           View all
           <ArrowRight className="h-4 w-4 ml-1" />
-        </Link>
+        </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -61,4 +67,3 @@ const RecentBlogsSection: React.FC<RecentBlogsSectionProps> = ({ blogs }) => {
 }
 
 export default RecentBlogsSection
-
